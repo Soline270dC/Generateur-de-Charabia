@@ -10,9 +10,10 @@ texte = f.read()
 f.close()
 
 for c in '?,.;:!()-' :
-    texte = texte.remove(c)
+    texte = texte.replace(c, '')
 
 texte = texte.replace('\n', ' ')
+texte = texte.lower()
 
 ch = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûü \'-'
 
@@ -28,5 +29,6 @@ Mat[ind_l][ind_c] += 1
 
 for i in range(len(ch)) :
     s = sum(Mat[i])
-    for j in range(len(ch)) :
-        Mat[i][j] = Mat[i][j]/s
+    if s != 0 :
+        for j in range(len(ch)) :
+            Mat[i][j] = Mat[i][j]/s
