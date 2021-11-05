@@ -1,8 +1,10 @@
 
+with open('Les_Misérables.txt', 'r') as file:
+    text = file.read().replace('\n', '').replace('  ', ' ')
+
+print(text)
 
 transition_count = {}
-text = "Je m'apelle Lise"
-
 
 n = len(text)
 for i in range(n-1):
