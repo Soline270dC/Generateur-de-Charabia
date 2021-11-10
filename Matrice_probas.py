@@ -46,3 +46,5 @@ for i in range(len(ch)) :
     if s != 0 :
         for j in range(len(ch)) :
             Mat[i][j] = Mat[i][j]/s
+
+np.save('Matrice_probas', Mat)

@@ -4,11 +4,9 @@ import numpy as np
 import random
 
 ch = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
-Mat = np.zeros((len(ch), len(ch)))
-#Mat = np.array([0.5/8]*8 + [0.5])
 
-#k = random.choices('abcdefghi', Mat)
-#print(k[0])
+# on récupère la matrice
+Mat = np.load('Matrice_probas.npy')
 
 n = int(input('nombre de mots : '))
 L = []
@@ -16,11 +14,11 @@ for _ in range(n) :
     mot = ''
     i = ch.index(' ')
     car = ''
-    while car != ' ' :
-        car = random.choices(ch, Mat[i])[0]
+    while car != ' ' : # on s'arrête quand on arrive à la fin d'un mot (signalé par ' ')
+        car = random.choices(ch, Mat[i])[0] # random.choices renvoie une liste de 1 élément
         mot += car
         i = ch.index(car)
-    L.append(mot)
+    L.append(mot.replace(' ','\n')) # on remplace l'espace final par un passage à la ligne
 
 f = open(f'{n}_mots_nouveaux.txt', 'w')
 f.writelines(L)
