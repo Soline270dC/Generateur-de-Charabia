@@ -19,3 +19,10 @@ On rend la matrice stochastique en divisant chaque ligne par la somme.
 Problème :
 Si on ne croise aucune occurence d'une lettre et qu'on a du coup une ligne nulle, est-ce qu'on peut vraiment parler de matrice stochastique ?
 Il faudrait donc faire attention à n'avoir que des caractères spéciaux qu'on rencontrera ?
+
+## Stockage et réutilisation de la matrice de transition
+La fonction numpy.save prend en argument:
+- un nom de fichier
+- un ndarray
+Elle crée un fichier nom_fichier.npy (non lisible pour nous autres simples mortels)
+On peut y accéder plus tard grâce à la fonction numpy.load qui prend en argument un nom de fichier (avec le .npy, cette fois) et renvoie la matrice sous la forme array([...])
