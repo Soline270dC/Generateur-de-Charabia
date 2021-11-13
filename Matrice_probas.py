@@ -27,7 +27,7 @@ Mat = np.zeros((len(ch), len(ch)))
 # on garde en note l'indice de la ligne (lettre initiale)
 # puis on cherche l'indice de la colonne (lettre suivante)
 # on implémente la matrice à la case ind_l, ind_c
-# l'indice de la colonne devient celiu de la ligne
+# l'indice de la colonne devient celui de la ligne
 # (on considère maintenant cette lettre comme lettre initiale)
 # au début, on met l'indice de la ligne sur espace pour compter le début du mot
 # on fait de même à la fin pour compter la fin du mot
