@@ -15,23 +15,25 @@ for c in '\t\n' :
 
 texte = texte.lower()
 
-ch = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
+alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
-Mat = np.zeros((len(ch), len(ch)))
-List_occ = [0]*len(ch)
+Mat = np.zeros((len(alphabet), len(alphabet)))
+List_occ = [0]*len(alphabet)
 
 # création de matrice et remplissage des occurences
-ind_l = 38 # = ch.index(' ')
+ind_l = 38 # = alphabet.index(' ')
 for i in range(len(texte)-1) :
-    ind_c = ch.index(texte[i])
-    Mat[ind_l][ind_c] += 1
-    List_occ[ind_c] += 1
-    ind_l = ind_c
+    car = texte[i]
+    if car in alphabet :
+        ind_c = alphabet.index(car)
+        Mat[ind_l][ind_c] += 1
+        List_occ[ind_c] += 1
+        ind_l = ind_c
 ind_c = 38
 Mat[ind_l][ind_c] += 1
 
 # normalisation
-for i in range(len(ch)) :
+for i in range(len(alphabet)) :
     if List_occ[i] != 0 :
         Mat[i] = Mat[i]/List_occ[i]
 
