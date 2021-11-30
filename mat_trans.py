@@ -37,4 +37,4 @@ for i in range(len(alphabet)) :
     if List_occ[i] != 0 :
         Mat[i] = Mat[i]/List_occ[i]
 
-np.save('Matrice_probas', Mat)
+np.save('Matrice_probas-2', Mat)
