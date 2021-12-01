@@ -1,0 +1,5 @@
+texte Liste_mots:
+caractères 26 à 37 et 39
+
+texte Les Misérables :
+10, 22, 31 à 33, 36
