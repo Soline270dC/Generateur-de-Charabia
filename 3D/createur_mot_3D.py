@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-Mat = np.load('Matrice_probas_3D.npy')
+Mat = np.load('Matrice_probas_3D_Miserables_1.npy')
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 

@@ -40,4 +40,4 @@ for i in range(len(alphabet)) :
         if List_occ[i][j] != 0 :
             Mat[i][j] = Mat[i][j]/List_occ[i][j]
 
-np.save('Matrice_probas_3D_Miserables', Mat)
+np.save('Matrice_probas_3D_Miserables_1', Mat)
