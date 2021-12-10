@@ -22,12 +22,12 @@ List_occ = [0]*len(alphabet)
 
 # création de matrice et remplissage des occurences
 ind_l = 38 # = alphabet.index(' ')
-for i in range(len(texte)-1) :
+for i in range(len(texte)) :
     car = texte[i]
     if car in alphabet :
         ind_c = alphabet.index(car)
         Mat[ind_l][ind_c] += 1
-        List_occ[ind_c] += 1
+        List_occ[ind_l] += 1
         ind_l = ind_c
 ind_c = 38
 Mat[ind_l][ind_c] += 1

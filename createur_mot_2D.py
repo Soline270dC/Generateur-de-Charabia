@@ -18,6 +18,6 @@ for _ in range(n) :
         i = alphabet.index(car)
     Mots.append(mot.replace(' ','\n'))
 
-f = open(f'liste_{n}_mots.txt', 'w')
+f = open(f'liste_{n}_mots_2D.txt', 'w')
 f.writelines(Mots)
 f.close()
