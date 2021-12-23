@@ -7,7 +7,7 @@ texte = f.read()
 f.close()
 
 # fonction 'propre' (cf origin/Aurelie)
-for c in '"(),?;.:!' : # cas des apostrophes à aviser ("c'", "l'", "d'")
+for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] : # cas des apostrophes à aviser ("c'", "l'", "d'")
     texte = texte.replace(c,'')
 
 for c in ' \t\n' :
@@ -42,4 +42,4 @@ for i in range(len(alphabet)) :
             if List_occ[i][j][k] != 0 :
                 Mat[i][j][k] = Mat[i][j][k]/List_occ[i][j][k]
 
-np.save('Matrice_probas_4D_Miserables_tot', Mat)
+np.save(r'4D\Matrice_probas_4D_Miserables_tot', Mat)
