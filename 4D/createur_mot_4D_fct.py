@@ -2,7 +2,7 @@ import numpy as np
 import random
 import codecs
 
-def creer_ensemble_mot(nom_fichier, mode = 'utf-8'):
+def creer_ensemble_mot(nom_fichier, mode = 'utf-8') :
     f = codecs.open(nom_fichier,'r', mode)
     str_mot = f.read()
     f.close()
@@ -30,6 +30,6 @@ def createur_mots_4D(n, Mat = Mat, ensemble_mot = ensemble_mot) :
                 y = z
                 z = alphabet.index(car)
         Mots.append(mot.replace(' ','\n'))
-    f = open(f'4D\\liste_{n}_mots_4D.txt', 'w')
+    f = codecs.open(f'4D\\liste_{n}_mots_4D.txt', 'w', 'utf-8')
     f.writelines(Mots)
     f.close()
