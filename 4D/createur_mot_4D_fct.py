@@ -15,11 +15,10 @@ ensemble_mot = creer_ensemble_mot("ensemble_mots.txt")
 
 def createur_mots_4D(n, Mat = Mat, ensemble_mot = ensemble_mot) :
     alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
-    n = int(input('nombre de mots à créer : '))
     Mots = []
     for _ in range(n) :
         mot = 'chat '
-        while mot[:-1] in ensemble_mot :
+        while mot[:-1] in ensemble_mot or mot.replace(' ','\n') in Mots :
             mot = ''
             x = y = z = 38 # = alphabet.index(' ')
             car = ''
@@ -33,3 +32,5 @@ def createur_mots_4D(n, Mat = Mat, ensemble_mot = ensemble_mot) :
     f = codecs.open(f'4D\\liste_{n}_mots_4D.txt', 'w', 'utf-8')
     f.writelines(Mots)
     f.close()
+
+createur_mots_4D(5000)
