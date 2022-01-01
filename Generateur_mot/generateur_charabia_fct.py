@@ -35,6 +35,6 @@ def generateur_charabia_hasard(texte, Liste_mots, long_min = 5, long_max = 14) :
             sep = i
     return texte
 
-# choix 2 : prmeière lettre identique et même nombre de lettres
+# choix 2 : prmeière lettre identique et même nombre de lettres (possiblement inutile)
 
 # choix 3 : distance d'édition la plus courte
