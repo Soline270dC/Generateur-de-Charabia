@@ -30,11 +30,31 @@ def generateur_charabia_hasard(texte, Liste_mots, long_min = 5, long_max = 14) :
             long = i - (sep+1)
             if long >= long_min and long <= long_max:
                 if Liste_mots[long] != [] :
-                    n_nom = random.choice(Liste_mots[long])
-                    texte = texte[:sep+1] + n_nom + texte[i:]
+                    texte = texte[:sep+1] + random.choice(Liste_mots[long]) + texte[i:]
             sep = i
     return texte
 
 # choix 2 : prmeière lettre identique et même nombre de lettres (possiblement inutile)
 
 # choix 3 : distance d'édition la plus courte
+from distance_levenshtein import d_l
+
+def d_l_min(nom, liste_mots) :
+    d_min = float.inf
+    mot_min = ''
+    for mot in liste_mots :
+        d = d_l(mot,nom)
+        if d < d_min :
+            d = d_min
+            mot_min = mot
+    return mot_min
+
+def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 14) :
+    sep = -1
+    for i in range(len(texte)) :
+        if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«'] :
+            long = i - (sep+1)
+            if long >= long_min and long <= long_max:
+                texte = texte[:sep+1] + d_l_min(texte[sep+1:i],Liste_mots) + texte[i:]
+            sep = i
+    return texte
