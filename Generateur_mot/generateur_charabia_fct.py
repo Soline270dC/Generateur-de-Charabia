@@ -28,7 +28,7 @@ set_mots = set(liste_mots(nom))
 
 # texte (pas trop long siouplé)
 #fich = input('nom du fichier textuel : ')
-fich = r'Generateur_mot\fichier_textuel.txt'
+fich = r'Generateur_mot\fichier_textuel_2.txt'
 f = codecs.open(fich, 'r', 'utf-8')
 texte = f.read()
 f.close()
@@ -54,13 +54,19 @@ def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 
     sep = -1
     n_texte = ''
     for i in range(len(texte)) :
-        if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«'] :
+        if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«', '\n'] :
             long = i - (sep+1)
             if long >= long_min and long <= long_max:
-                n_texte += random.choice(liste_d_l_min(texte[sep+1:i], Liste_mots)) + texte[i]
+                n_nom = random.choice(liste_d_l_min(texte[sep+1:i], Liste_mots))
+                if texte[sep+1].upper() == texte[sep+1] :
+                    n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
+                else :
+                    n_texte += n_nom + texte[i]
             else :
                 n_texte += texte[sep+1:i+1]
             sep = i
     return n_texte
 
-print(generateur_charabia_levenshtein(texte, set_mots))
+f = codecs.open(r'Generateur_mot\n_f_t.txt', 'w', 'utf-8')
+f.write(generateur_charabia_levenshtein(texte, set_mots))
+f.close()

@@ -31,6 +31,6 @@ for _ in range(n) :
             z = alphabet.index(car)
     Mots.append(mot.replace(' ','\n'))
 
-f = open(f'4D\\liste_{n}_mots_4D.txt', 'w')
+f = codecs.open(f'4D\\liste_{n}_mots_4D.txt', 'w', 'utf-8')
 f.writelines(Mots)
 f.close()
