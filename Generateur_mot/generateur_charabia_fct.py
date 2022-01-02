@@ -36,14 +36,23 @@ f.close()
 # choix 1 : mots au hasard
 def generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 14) :
     sep = -1
+    n_texte = ''
     for i in range(len(texte)) :
         if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«'] :
             long = i - (sep+1)
             if long >= long_min and long <= long_max:
                 if Liste_mots_triee[long] != [] :
-                    texte = texte[:sep+1] + random.choice(Liste_mots_triee[long]) + texte[i:]
+                    n_nom = random.choice(Liste_mots_triee[long])
+                    if texte[sep+1].upper() == texte[sep+1] :
+                        n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
+                    else :
+                        n_texte += n_nom + texte[i]
+                else :
+                    n_texte += texte[sep+1:i+1]
+            else :
+                n_texte += texte[sep+1:i+1]
             sep = i
-    return texte
+    return n_texte
 
 # choix 2 : prmeière lettre identique et même nombre de lettres (possiblement inutile)
 
