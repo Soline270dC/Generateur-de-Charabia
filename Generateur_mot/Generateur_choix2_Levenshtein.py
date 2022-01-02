@@ -7,23 +7,22 @@ import random
 
 # Dans les deux cas, il faut commencer par générer une liste de mots créés à partir de la matrice de transition. Nous avons essayé successivement avec des listes de 100, 1000 et 5000 mots.
 
-# On propose à l'utilisateur de rentrer le texte à modifier dans un fichier .txt. La fonction suivante permet de lire ce fichier et d'en faire une liste de chaînes de caractères, chacune correspondant à un mot. 
+# cette fonction premet de lire une liste de mots dans un fichier et de la renvoyer sous la forme d'une list Python 
 def liste_mots(nom_fichier_textuel, mode = 'utf-8') :
     f = codecs.open(nom_fichier_textuel, 'r', mode)
     str_mots = f.read()
     f.close()
-    liste_mots = str_mots.split()  # C'est ici qu'on sépare le texte en mots. 
+    liste_mots = str_mots.split()  # C'est ici qu'on transforme le texte en list. 
     return liste_mots
 
 #nom = input('nom de la liste de mots : ')
 nom = r'4D\liste_5000_mots_4D.txt'
-set_mots = set(liste_mots(nom))  # Pour améliorer la complexité de recherche dans la liste de mots inventés, on la transforme en set
-
+Liste_mots = liste_mots(nom)
 
 # texte 
-#fich = input('nom du fichier textuel : ')
-fichier_textuel = r'Generateur_mot\fichier_textuel_2.txt'
-fichier_textuel = codecs.open(fich, 'r', 'utf-8')
+#nom_fichier_textuel = input('nom du fichier textuel : ')
+nom_fichier_textuel = r'Generateur_mot\fichier_textuel_2.txt'
+fichier_textuel = codecs.open(nom_fichier_textuel, 'r', 'utf-8')
 texte = fichier_textuel.read()
 fichier_textuel.close()
 
@@ -32,14 +31,15 @@ fichier_textuel.close()
 from distance_levenshtein import liste_d_l_min 
 #la fonction liste_d_l_min prend en argument une chaîne de caractères ch1 et une liste de chaînes de caractères, et renvoie une liste composée des chaînes issues de la liste telle que la distance de Levenshtein entre ces mots et ch1 soit minimale. 
 
-def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 14) : #le fonctionnement de cette fonction est similaire à celle dans le cas du générateur-choix1
+def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 14) : # O(len(texte)*len(Liste_mots))
+    #le fonctionnement de cette fonction est similaire à celle dans le cas du générateur-choix1
     sep = -1
     n_texte = ''
-    for i in range(len(texte)) :
+    for i in range(len(texte)) : # O(len(texte)*len(Liste_mots))
         if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«', '\n'] :
             long = i - (sep+1)
-            if long >= long_min and long <= long_max:
-                n_nom = random.choice(liste_d_l_min(texte[sep+1:i], Liste_mots))
+            if long >= long_min and long <= long_max : # environ 1/10 occurences
+                n_nom = random.choice(liste_d_l_min(texte[sep+1:i], Liste_mots)) # O(len(Liste_mots)*long*len_moyenne(mots in Liste_mots)) = O(len(Liste_mots)) car len_moyenne(mots in Liste_mots) = O(1) en pratique
                 if texte[sep+1].upper() == texte[sep+1] :
                     n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
                 else :
@@ -50,5 +50,5 @@ def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 
     return n_texte
 
 f = codecs.open(r'Generateur_mot\n_f_t.txt', 'w', 'utf-8')
-f.write(generateur_charabia_levenshtein(texte, set_mots))
+f.write(generateur_charabia_levenshtein(texte, Liste_mots))
 f.close()

@@ -3,14 +3,13 @@ import random
 import codecs
 
 # crée un ensemble de mots à partir d'un fichier (permet d'éviter les doublons)
-def creer_ensemble_mot(nom_fichier, mode = 'utf-8') : # O(len(fichier)) amorti
+def creer_ensemble_mot(nom_fichier, mode = 'utf-8') : # O(len(E)) amorti
     f = codecs.open(nom_fichier,'r', mode)
-    str_mot = f.read()
+    E = eval(f.read()) # O(len(E))
     f.close()
-    liste_mot = str_mot.split() # O(len(str_mot))
     # on ajoute le mot vide pour qu'il ne soit pas créé
-    liste_mot.append('') # O(1) amorti
-    return set(liste_mot) # O(len(liste_mot))
+    E.add('') # O(1) moyen / O(len(E)) amorti dans le pire cas
+    return E
 
 Mat = np.load(r'4D\Matrice_probas_4D_Miserables_tome1.npy')
 ensemble_mot = creer_ensemble_mot("ensemble_mots_français.txt")

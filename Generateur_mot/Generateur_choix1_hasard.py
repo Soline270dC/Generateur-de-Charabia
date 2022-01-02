@@ -27,14 +27,6 @@ def liste_mots_triee(nom_fichier, mode = 'utf-8') :
             liste_mots_triee[len(mot)].append(mot)
     return liste_mots_triee
 
-# On propose à l'utilisateur de rentrer le texte à modifier dans un fichier .txt. La fonction suivante permet de lire ce fichier et d'en faire une liste de chaînes de caractères, chacune correspondant à un mot. 
-def liste_mots(nom_fichier_textuel, mode = 'utf-8') :
-    f = codecs.open(nom_fichier_textuel, 'r', mode)
-    str_mots = f.read()
-    f.close()
-    liste_mots = str_mots.split()  # C'est ici qu'on sépare le texte en mots. 
-    return liste_mots
-
 #nom = input('nom de la liste de mots inventés à utiliser : ')
 nom_de_la_liste_mots_inventés = r'4D\liste_5000_mots_4D.txt'
 Liste_mots_triee = liste_mots_triee(nom_de_la_liste_mots_inventés)
@@ -46,23 +38,30 @@ fichier_texte = codecs.open(fichier_texte, 'r', 'utf-8')
 texte = fichier_texte.read()
 fichier_texte.close()
 
-def generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 20) : 
-    sep = -1 # sep correspondra dans la suite du programme à la position du dernier séparateur de mots dans le texte
+def generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 20) : # O(len(texte))
+    sep = -1
+    # sep correspondra dans la suite du programme à la position du dernier séparateur de mots dans le texte
     n_texte = ''
-    for i in range(len(texte)) :
-        if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«'] : # on considère que lorsque l'on rencontre un de ces signes, il s'agit de la fin d'un mot. (Remarque : on ne prend pas en compte l'apostrophe pour que le programme considère les mots avec apostrophe comme un seul mot)
+    for i in range(len(texte)) : # O(len(texte))
+        if texte[i] in [' ','"','(',')',',','?',';','.',':','!','_','»','«'] :
+            # on considère que lorsque l'on rencontre un de ces signes, il s'agit de la fin d'un mot.
+            # Remarque : on ne prend pas en compte l'apostrophe pour que le programme considère les mots avec apostrophe comme un seul mot
             long = i - (sep+1) # long correspond à la longueur du dernier mot lu
             if long >= long_min and long <= long_max: # on regarde si on veut remplacer le mot lu
-                if Liste_mots_triee[long] != [] :
-                    n_nom = random.choice(Liste_mots_triee[long]) # on choisit ici un des mots de même longueur de la liste triéee par longueur 
-                    if texte[sep+1].upper() == texte[sep+1] :   # on fait en sorte de garder les majuscules pour faciliter la lecture du texte final
+                if Liste_mots_triee[long] != [] : # O(1)
+                    # on choisit ici un des mots de même longueur de la liste triéee par longueur 
+                    n_nom = random.choice(Liste_mots_triee[long])
+                    # on fait en sorte de garder les majuscules pour faciliter la lecture du texte final
+                    if texte[sep+1].upper() == texte[sep+1] :
                         n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
                     else :
                         n_texte += n_nom + texte[i]
+                # si jamais il n'y a pas de mot de même longueur dans la liste triée, on garde le mot sans le remplacer
                 else :
-                    n_texte += texte[sep+1:i+1]  # si jamais il n'y a pas de mot de même longueur dans la liste triée, on garde le mot sans le remplacer
+                    n_texte += texte[sep+1:i+1]
+            # de même, si le mot est trop court ou trop long, on le garde
             else :
-                n_texte += texte[sep+1:i+1] # de même, si le mot est trop court ou trop long, on le garde
+                n_texte += texte[sep+1:i+1]
             sep = i
     return n_texte
 

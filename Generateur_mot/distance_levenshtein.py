@@ -18,7 +18,7 @@ def d_l(a,b) : # \Theta(len(a)*len(b))
                 D[i][j] = min(D[i-1][j] + 1, D[i][j-1] + 1, D[i-1][j-1] + indicatrice(car_a, car_b))
     return D[-1][-1]
 
-def liste_d_l_min(nom, liste_mots) : # \Theta(len(nom)*len_moyenne(mots)*nb_mots) = O(len_moyenne(mots)*nb_mots)
+def liste_d_l_min(nom, liste_mots) : # \Theta(len(nom)*len_moyenne(mots)*nb_mots)
     d_min = float('inf')
     L = []
     for mot in liste_mots :

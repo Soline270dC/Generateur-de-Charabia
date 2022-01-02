@@ -22,11 +22,21 @@ Ens_mots_liste = set(mots_liste) # O(len(mots_liste))
 
 Ens_mots = Ens_mots_misérables|Ens_mots_liste # O(len(mots-liste) + len(mots_misérables))
 
-Liste_mots = sorted(list(Ens_mots)) # O(len(Ens_mots)*log(len(Ens_mots)))
-ch = '\n'.join(Liste_mots) # O(len(Ens_mots))
-
 f = codecs.open('ensemble_mots_français.txt', 'w', 'utf-8')
-f.write(ch)
+f.write(str(Ens_mots))
 f.close() # O(len(ch))
 
 # O(len(texte)²)
+
+def ensemble_mots_existants(nom_fichier, nom_ensemble, mode = 'utf-8') :
+    f = codecs.open(nom_fichier, 'r', mode)
+    texte = f.read()
+    f.close()
+    for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] :
+        texte = texte.replace(c,' ')
+    texte = texte.lower()
+    mots = texte.split()
+    Ens_mots = set(mots)
+    f = codecs.open(nom_ensemble, 'w', 'utf-8')
+    f.write(str(Ens_mots))
+    f.close()
