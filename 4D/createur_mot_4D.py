@@ -2,7 +2,7 @@ import numpy as np
 import random
 import codecs
 
-f = codecs.open('ensemble_mots.txt','r', 'utf-8')
+f = codecs.open('ensemble_mots_français.txt','r', 'utf-8')
 str_mot = f.read()
 f.close()
 
