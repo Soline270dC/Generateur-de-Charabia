@@ -46,7 +46,7 @@ def mat_trans_4D(nom_fichier, nom_matrice, mode = 'utf-8') : # O(len(texte)²)
     t = ind_esp
     Mat[x][y][z][t] += 1
 
-    ## normalisation de la matrice
+    ## normalisation de la matrice pour transformer les nombres d'occurences en probabilités de transition
     for i in range(len(alphabet)) : # O(len(alphabet)^4) = O(1)
         for j in range(len(alphabet)) :
             for k in range(len(alphabet)):
