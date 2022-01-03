@@ -23,7 +23,7 @@ Ens_mots_liste = set(mots_liste) # O(len(mots_liste))
 Ens_mots = Ens_mots_misérables|Ens_mots_liste # O(len(mots-liste) + len(mots_misérables))
 
 f = codecs.open('ensemble_mots_français.txt', 'w', 'utf-8')
-f.write(str(Ens_mots))
+f.write(repr(Ens_mots))
 f.close() # O(len(ch))
 
 # O(len(texte)²)
@@ -38,5 +38,5 @@ def ensemble_mots_existants(nom_fichier, nom_ensemble, mode = 'utf-8') :
     mots = texte.split()
     Ens_mots = set(mots)
     f = codecs.open(nom_ensemble, 'w', 'utf-8')
-    f.write(str(Ens_mots))
+    f.write(repr(Ens_mots))
     f.close()
