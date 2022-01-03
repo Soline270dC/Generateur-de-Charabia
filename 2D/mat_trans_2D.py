@@ -6,8 +6,7 @@ f = codecs.open(nom, 'r', 'utf-8') # utf-8 à adapter en fonction du document
 texte = f.read()
 f.close()
 
-# fonction 'propre' (cf origin/Aurelie)
-for c in '"(),?;.:!' : # cas des apostrophes à aviser ("c'", "l'", "d'")
+for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] :
     texte = texte.replace(c,'')
 
 for c in '\t\n' :
@@ -37,4 +36,4 @@ for i in range(len(alphabet)) :
     if List_occ[i] != 0 :
         Mat[i] = Mat[i]/List_occ[i]
 
-np.save('Matrice_probas', Mat)
+np.save('Matrice_probas_2D_liste_mots', Mat)

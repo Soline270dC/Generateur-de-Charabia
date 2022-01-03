@@ -18,5 +18,5 @@ from createur_mots_4D import creer_ensemble_mot, createur_mots_4D
 Mat = np.load(nom_matrice + ".npy")
 ensemble_mot = creer_ensemble_mot(nom_ensemble)
 
-n = int(input("Nombre de mots à créer : ")) #Conseils de nombre de mots : entre 5000 et 10 000
+n = int(input("Nombre de mots à créer : ")) # Conseils de nombre de mots : entre 5000 et 10 000
 createur_mots_4D(n)
