@@ -20,10 +20,10 @@ ensemble_mot = creer_ensemble_mot("ensemble_mots_français.txt")
 def createur_mots_4D(n, Mat = Mat, ensemble_mot = ensemble_mot) : # O(max(n*len(ensemble_mots), n²))
     alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
     ind_esp = alphabet.index(' ')
-    Mots = []
+    Mots = set()
     for _ in range(n) : # O(n*(len(ensemble_mots) + n)) amorti
         # mot qui existe déjà dans ensemble_mot pour entrer dans la boucle
-        mot = 'chat '
+        mot = ''
         while mot[:-1] in ensemble_mot or mot.replace(' ','\n') in Mots : # test : O(len(ensemble_mot) + n)
             # le mot ne doit ni être français, ni avoir déjà été créé : cela permet d'avoir exactement n mots inventés 
             # refait un nombre constant de fois ?
@@ -39,7 +39,7 @@ def createur_mots_4D(n, Mat = Mat, ensemble_mot = ensemble_mot) : # O(max(n*len(
                 x = y
                 y = z
                 z = alphabet.index(car) # O(len(alphabet)) = O(1)
-        Mots.append(mot.replace(' ','\n')) # O(len(mot)) = O(1) amorti
+        Mots.add(mot.replace(' ','\n')) # O(len(mot)) = O(1) amorti
     
     f = codecs.open(f'4D\\liste_{n}_mots_4D.txt', 'w', 'utf-8')
     f.writelines(Mots)

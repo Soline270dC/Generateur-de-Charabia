@@ -10,15 +10,15 @@ liste_mot = str_mot.split()
 liste_mot.append('')
 ensemble_mot = set(liste_mot)
 
-Mat = np.load(r'4D\Matrice_probas_4D_Miserables_tot.npy')
+Mat = np.load(r'4D\Matrice_probas_4D.npy')
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
 n = int(input('nombre de mots à créer : '))
-Mots = []
+Mots = set()
 
 for _ in range(n) :
-    mot = 'chat '
+    mot = ''
     while mot[:-1] in ensemble_mot :
         mot = ''
         x = y = z = 38 # = alphabet.index(' ')
@@ -29,7 +29,7 @@ for _ in range(n) :
             x = y
             y = z
             z = alphabet.index(car)
-    Mots.append(mot.replace(' ','\n'))
+    Mots.add(mot.replace(' ','\n'))
 
 f = codecs.open(f'4D\\liste_{n}_mots_4D.txt', 'w', 'utf-8')
 f.writelines(Mots)
