@@ -2,7 +2,7 @@ import numpy as np
 import random
 import codecs
 
-Mat = np.load(r'2D\Matrice_probas_2D_liste_mots.npy')
+Mat = np.load(r'2D\Matrice_probas_2D_Miserables_1.npy')
 
 f = codecs.open('ensemble_mots_français.txt','r', 'utf-8')
 str_mot = f.read()
@@ -19,7 +19,7 @@ Mots = set()
 
 for _ in range(n) :
     mot = ''
-    while mot[:-1] in ensemble_mot and mot.replace(' ','\n') in Mots:
+    while mot[:-1] in ensemble_mot or mot.replace(' ','\n') in Mots:
         mot = ''
         i = 38 # = alphabet.index(' ')
         car = ''

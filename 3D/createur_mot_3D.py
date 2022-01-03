@@ -2,7 +2,7 @@ import numpy as np
 import random
 import codecs
 
-f = codecs.open('ensemble_mots.txt','r', 'utf-8')
+f = codecs.open('ensemble_mots_français.txt','r', 'utf-8')
 str_mot = f.read()
 f.close()
 
@@ -15,11 +15,11 @@ Mat = np.load(r'3D\Matrice_probas_3D_Miserables_1.npy')
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
 n = int(input('nombre de mots à créer : '))
-Mots = []
+Mots = set()
 
 for _ in range(n) :
-    mot = 'chat '
-    while mot[:-1] in ensemble_mot :
+    mot = ''
+    while mot[:-1] in ensemble_mot or mot.replace(' ','\n') in Mots:
         mot = ''
         x = y = 38 # = alphabet.index(' ')
         car = ''
@@ -28,8 +28,8 @@ for _ in range(n) :
             mot += car
             x = y
             y = alphabet.index(car)
-    Mots.append(mot.replace(' ','\n'))
+    Mots.add(mot.replace(' ','\n'))
 
-f = open(f'3D\\liste_{n}_mots_3D.txt', 'w')
-f.writelines(Mots)
+f = codecs.open(f'3D\\liste_{n}_mots_3D_Miserables.txt', 'w', 'utf-8')
+f.writelines(list(Mots))
 f.close()
