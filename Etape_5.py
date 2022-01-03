@@ -12,7 +12,7 @@ f.close()
 
 ecrire_dans_un_fichier = bool(input("Voulez-vous écrire le charabia dans un fichier ? (True/False)"))
 
-from Generateur_choix1_hasard import liste_mots_triee, generateur_charabia_hasard
+from Generateur_choix1_Hasard import liste_mots_triee, generateur_charabia_hasard
 
 if hasard :
   Liste_mots_triee = liste_mots_triee(nom_liste)
@@ -21,7 +21,7 @@ if hasard :
     f = codecs.open(nom_texte_a_modifier[:-4] + "_charabia_hasard.txt", "w", "utf-8")
     f.write(nouveau_texte)
     f.close()
-   else :
+  else :
     print(nouveau_texte)
 
 from Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein
@@ -33,9 +33,5 @@ if levenshtein :
     f = codecs.open(nom_texte_a_modifier[:-4] + "_charabia_levenshtein.txt", "w", "utf-8")
     f.write(nouveau_texte)
     f.close()
-   else :
+  else :
     print(nouveau_texte)
-    
-  
-  
-  
