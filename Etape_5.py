@@ -10,9 +10,9 @@ f = codecs.open(nom_texte_a_modifier, "r", "utf-8")
 texte = f.read()
 f.close()
 
-ecrire_dans_un_fichier = bool(input("Voulez-vous écrire le charabia dans un fichier ? (True/False)"))
+ecrire_dans_un_fichier = bool(input("Voulez-vous écrire le charabia dans un fichier ? (True/False) "))
 
-from Generateur_choix1_Hasard import liste_mots_triee, generateur_charabia_hasard
+from Generateur_choix1_hasard import liste_mots_triee, generateur_charabia_hasard
 
 if hasard :
   Liste_mots_triee = liste_mots_triee(nom_liste)
