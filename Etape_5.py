@@ -6,7 +6,7 @@ levenshtein = bool(eval(input(" Voulez-vous remplacer un mot par un autre qui lu
 breakpoint()
 
 if hasard or levenshtein : 
-  nom_liste = input("Veuillez noter le nom de la liste de mots inventés (+ extension .txt) : ")
+  nom_liste = input("Veuillez noter le nom de la liste de mots inventés (+ extension .txt): ")
 
   nom_texte_a_modifier = input("Veuillez noter le nom du document à modifier (+ extension .txt) : ")
   f = codecs.open(nom_texte_a_modifier, "r", "utf-8")
