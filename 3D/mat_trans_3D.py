@@ -6,15 +6,13 @@ f = codecs.open(nom, 'r', 'utf-8') # utf-8 à adapter en fonction du document
 texte = f.read()
 f.close()
 
-# fonction 'propre' (cf origin/Aurelie)
-for c in '"(),?;.:!' : # cas des apostrophes à aviser ("c'", "l'", "d'")
+for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] :
     texte = texte.replace(c,'')
 
 for c in ' \t\n' :
     texte = texte.replace(c, '  ')
 
 texte = texte.lower()
-# texte += ' '
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
@@ -40,4 +38,4 @@ for i in range(len(alphabet)) :
         if List_occ[i][j] != 0 :
             Mat[i][j] = Mat[i][j]/List_occ[i][j]
 
-np.save('Matrice_probas_3D_Miserables_1', Mat)
+np.save(r'3D\Matrice_probas_3D_liste', Mat)

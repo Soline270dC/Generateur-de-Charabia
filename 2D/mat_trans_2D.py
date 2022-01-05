@@ -1,21 +1,19 @@
 import numpy as np
 import codecs
 
-# Choisir la base de données parmi celles disponibles dans le dossier "Base de données"
-nom = input('Veuillez noter le nom du fichier avec extension txt : ')
+nom = input('nom du fichier + extension : ')
 f = codecs.open(nom, 'r', 'utf-8') # utf-8 à adapter en fonction du document
 texte = f.read()
 f.close()
 
 # fonction 'propre' (cf origin/Aurelie)
-# Suppression de la ponctuation, tabulation, saut de ligne et quelques caractères spéciaux
 for c in '"(),?;.:!' : # cas des apostrophes à aviser ("c'", "l'", "d'")
     texte = texte.replace(c,'')
 
 for c in '\t\n' :
     texte = texte.replace(c, ' ')
 
-texte = texte.lower() #On remettra les majuscules si besoin
+texte = texte.lower()
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
@@ -23,7 +21,7 @@ Mat = np.zeros((len(alphabet), len(alphabet)))
 List_occ = [0]*len(alphabet)
 
 # création de matrice et remplissage des occurences
-ind_l = 38 # On initialise au caractère "espace" pour la première lettre (= alphabet.index(' '))
+ind_l = 38 # = alphabet.index(' ')
 for i in range(len(texte)) :
     car = texte[i]
     if car in alphabet :
@@ -34,7 +32,7 @@ for i in range(len(texte)) :
 ind_c = 38
 Mat[ind_l][ind_c] += 1
 
-# On procède à la normalisation de la matrice
+# normalisation
 for i in range(len(alphabet)) :
     if List_occ[i] != 0 :
         Mat[i] = Mat[i]/List_occ[i]
