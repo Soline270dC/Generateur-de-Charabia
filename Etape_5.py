@@ -1,9 +1,8 @@
 import codecs
 
 input("Choisir le mode d'utilisation (Au hasard/ Avec la distance d'édition de Levenshtein) : ")
-hasard = bool(eval(input("Voulez-vous remplacer un mot par un autre de même longueur de façon tout à fait au hasard ? (True/False) ")))
-levenshtein = bool(eval(input(" Voulez-vous remplacer un mot par un autre qui lui est le plus proche par rapport à la distance d'édition de Levenshtein ? (True/False) ")))
-breakpoint()
+hasard = eval(input("Voulez-vous remplacer un mot par un autre de même longueur de façon tout à fait au hasard ? (True/False) "))
+levenshtein = eval(input(" Voulez-vous remplacer un mot par un autre qui lui est le plus proche par rapport à la distance d'édition de Levenshtein ? (True/False) "))
 
 if hasard or levenshtein : 
   nom_liste = input("Veuillez noter le nom de la liste de mots inventés (+ extension .txt): ")
@@ -28,7 +27,7 @@ if hasard or levenshtein :
     else :
       print(nouveau_texte)
 
-  from Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein
+  from Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein #à mettre à l'intérieur de l'instruction conditionnelle ?
       
   if levenshtein :
     Liste_mots = liste_mots(nom_liste)
