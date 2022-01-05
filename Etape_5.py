@@ -12,11 +12,12 @@ if hasard or levenshtein :
   texte = f.read()
   f.close()
 
+  # Création d'un fichier contenant le texte charabié
   ecrire_dans_un_fichier = bool(input("Voulez-vous écrire le charabia dans un fichier ? (True/False) "))
-
   from Generateur_choix1_hasard import liste_mots_triee, generateur_charabia_hasard
-
   breakpoint()
+  
+  # Générer un texte nouveau suivant le mode au hasard
   if hasard :
     Liste_mots_triee = liste_mots_triee(nom_liste)
     nouveau_texte = generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 20)
@@ -28,7 +29,8 @@ if hasard or levenshtein :
       print(nouveau_texte)
 
   from Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein #à mettre à l'intérieur de l'instruction conditionnelle ?
-      
+  
+  # Générer un texte nouveau suivant le mode de la distance d'édition de Levenshtein
   if levenshtein :
     Liste_mots = liste_mots(nom_liste)
     nouveau_texte = generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 20)
