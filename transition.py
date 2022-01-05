@@ -52,10 +52,11 @@ for k in transition_count.keys():
 #         Tproba[i,j] =
 
 
-Création de l'automate
+# Création de l'automate
 
 lettre_depart = "p"
-nombre de caractères = 6
+nombredecaractères = 6
+
 subtransition_count = {}
 for k,v in transition_count.items():
     if k.startswith(lettre_depart):
