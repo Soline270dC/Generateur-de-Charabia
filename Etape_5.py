@@ -1,13 +1,14 @@
 import codecs
 
-hasard = bool(eval(input("Hasard ? (True/False) ")))
-levenshtein = bool(eval(input("Levenshtein ? (True/False) ")))
+input("Choisir le mode d'utilisation (Au hasard/ Avec la distance d'édition de Levenshtein) : ")
+hasard = bool(eval(input("Voulez-vous remplacer un mot par un autre de même longueur de façon tout à fait au hasard ? (True/False) ")))
+levenshtein = bool(eval(input(" Voulez-vous remplacer un mot par un autre qui lui est le plus proche par rapport à la distance d'édition de Levenshtein ? (True/False) ")))
 breakpoint()
 
 if hasard or levenshtein : 
-  nom_liste = input("Nom de la liste de mots inventés (+ extension .txt) : ")
+  nom_liste = input("Veuillez noter le nom de la liste de mots inventés (+ extension .txt) : ")
 
-  nom_texte_a_modifier = input("Nom du document à modifier (+ extension .txt) : ")
+  nom_texte_a_modifier = input("Veuillez noter le nom du document à modifier (+ extension .txt) : ")
   f = codecs.open(nom_texte_a_modifier, "r", "utf-8")
   texte = f.read()
   f.close()
