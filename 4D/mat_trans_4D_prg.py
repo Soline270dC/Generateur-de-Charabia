@@ -1,12 +1,14 @@
 import numpy as np
 import codecs
 
+# Choisir la base de données parmi celles disponibles dans le dossier "Base de données"
 nom = input('nom du fichier + extension : ')
 f = codecs.open(nom, 'r', 'utf-8') # utf-8 à adapter en fonction du document
 texte = f.read()
 f.close()
 
 # fonction 'propre' (cf origin/Aurelie)
+# Suppression de la ponctuations et quelques caractères spéciaux
 for c in '"(),?;.:!' : # cas des apostrophes à aviser ("c'", "l'", "d'")
     texte = texte.replace(c,'')
 
@@ -21,8 +23,8 @@ alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 Mat = np.zeros((len(alphabet), len(alphabet), len(alphabet), len(alphabet)))
 List_occ = np.zeros((len(alphabet), len(alphabet), len(alphabet)))
 
-# création de matrice et remplissage des occurences
-x = y = z = 38 # = alphabet.index(' ')
+# création de la matrice de probabilité et remplissage des occurences
+x = y = z = 38 # Initialisation des termes au caractère "espace" pour la première lettre (= alphabet.index(' '))
 for i in range(len(texte)) :
     car = texte[i]
     if car in alphabet :
@@ -35,7 +37,7 @@ for i in range(len(texte)) :
 t = 38
 Mat[x][y][z][t] += 1
 
-# normalisation
+# On procède à la normalisation de la matrice
 for i in range(len(alphabet)) :
     for j in range(len(alphabet)) :
         for k in range(len(alphabet)):
