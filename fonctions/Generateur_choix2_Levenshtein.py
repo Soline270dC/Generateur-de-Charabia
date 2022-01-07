@@ -16,7 +16,7 @@ def liste_mots(nom_fichier_textuel, mode = 'utf-8') :
     return liste_mots
 
 # choix 2 : distance d'édition la plus courte
-from distance_levenshtein import liste_d_l_min 
+from fonctions.distance_levenshtein import liste_d_l_min 
 #la fonction liste_d_l_min prend en argument une chaîne de caractères ch1 et une liste de chaînes de caractères, et renvoie une liste composée des chaînes issues de la liste telle que la distance de Levenshtein entre ces mots et ch1 soit minimale. 
 
 def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 14) : # O(len(texte)*len(Liste_mots))

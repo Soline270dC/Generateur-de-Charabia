@@ -39,6 +39,6 @@ def createur_mots_4D(n, Mat, ensemble_mots_existants) : # O(max(n*len(ensemble_m
             Mots.add(mot) # O(len(mot)) = O(1) amorti
             i += 1
     
-    f = codecs.open(f'liste_{n}_mots_4D.txt', 'w', 'utf-8')
+    f = codecs.open(f'liste_{n}_mots_inventes_4D.txt', 'w', 'utf-8')
     f.writelines(Mots)
     f.close()

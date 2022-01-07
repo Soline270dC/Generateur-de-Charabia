@@ -20,7 +20,7 @@ if hasard or levenshtein :
   
 # Générer un texte nouveau suivant le mode au hasard
 if hasard :
-    from Generateur_choix1_hasard import liste_mots_triee, generateur_charabia_hasard
+    from fonctions.Generateur_choix1_hasard import liste_mots_triee, generateur_charabia_hasard
     print("Génération de charabia en cours...")
     Liste_mots_triee = liste_mots_triee(nom_liste)
     nouveau_texte = generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 20)
@@ -34,7 +34,7 @@ if hasard :
   
 # Générer un texte nouveau suivant le mode de la distance d'édition de Levenshtein
 if levenshtein :
-    from Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein
+    from fonctions.Generateur_choix2_Levenshtein import liste_mots, generateur_charabia_levenshtein
     print("Génération de charabia en cours...")
     Liste_mots = liste_mots(nom_liste)
     nouveau_texte = generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 20)
