@@ -1,4 +1,4 @@
-# Generateur de Charabia
+# Générateur de Charabia
 ## 1 - Choisir la base de données
 Un dossier contenant plusieurs bases de données est disponible
 
