@@ -62,6 +62,6 @@ Ce mode permet de remplacer les mots choisis par le mot de la liste de mots cré
 
 Elle renvoie le texte modifié
 
-Cette fonction fait appel à la fonction **liste_d_l_min** du fichier XXX.
+Cette fonction fait appel à la fonction **liste_d_l_min** du fichier **distance_levenshtein.py**.
 
 Sa complexité en temps est en O(len(texte)*len(Liste_mots))
