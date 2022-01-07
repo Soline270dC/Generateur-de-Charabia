@@ -2,34 +2,35 @@ import numpy as np
 import random
 import codecs
 
-f = codecs.open('ensemble_mots_français.txt','r', 'utf-8')
-str_mot = f.read()
+f = codecs.open('ensemble_1.txt','r', 'utf-8')
+ensemble_mot = eval(f.read())
 f.close()
+ensemble_mot.add('')
 
-liste_mot = str_mot.split()
-liste_mot.append('')
-ensemble_mot = set(liste_mot)
-
-Mat = np.load(r'3D\Matrice_probas_3D_Miserables_1.npy')
+Mat = np.load(r'Programmes_alternatifs\3D\Matrice_probas_3D_Miserables_1.npy')
 
 alphabet = 'abcdefghijklmnopqrstuvwxyzàâéèêëîïôûüç \'-'
 
 n = int(input('nombre de mots à créer : '))
 Mots = set()
+ind_esp = alphabet.index(' ')
 
-for _ in range(n) :
+# Implémentation du générateur de nouveaux mots
+i = 0
+while i < n :
     mot = ''
-    while mot[:-1] in ensemble_mot or mot.replace(' ','\n') in Mots:
-        mot = ''
-        x = y = 38 # = alphabet.index(' ')
-        car = ''
-        while car != ' ' :
-            car = random.choices(alphabet, Mat[x][y])[0]
-            mot += car
-            x = y
-            y = alphabet.index(car)
-    Mots.add(mot.replace(' ','\n'))
+    x = y = ind_esp
+    car = ''
+    while car != ' ' :
+        car = random.choices(alphabet, Mat[x][y])[0]
+        mot += car
+        x = y
+        y = alphabet.index(car)
+    mot = mot.replace(' ','\n')
+    if mot not in Mots and mot[:-1] not in ensemble_mot :
+        Mots.add(mot)
+        i += 1
 
-f = codecs.open(f'3D\\liste_{n}_mots_3D_Miserables.txt', 'w', 'utf-8')
+f = codecs.open(f'Programmes_alternatifs\\3D\\liste_{n}_mots_3D_Miserables_.txt', 'w', 'utf-8')
 f.writelines(list(Mots))
 f.close()

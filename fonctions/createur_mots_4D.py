@@ -21,7 +21,6 @@ def createur_mots_4D(n, Mat, ensemble_mots_existants) : # O(max(n*len(ensemble_m
     i = 0
     while i < n :# O(n*(len(ensemble_mots) + n)) amorti
         mot = ''
-        
         # on place les curseurs sur ' ' afin d'obtenir la première lettre
         x = y = z = ind_esp
         car = ''
