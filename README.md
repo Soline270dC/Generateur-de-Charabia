@@ -5,7 +5,7 @@ Un dossier contenant plusieurs bases de données est disponible
 ## 2 - Créer la matrice 4D
 Il est aussi possible d'utiliser une matrice 3D ou 2D, mais les mots sont alors plus difficiles à lire et sonnent peu français pour la plupart
 
-La fonction **mat_trans_4D** dans le fichier XXX prend en entrée :
+La fonction **mat_trans_4D** dans le fichier **Matrice_transition_4D.py** prend en entrée :
 - le chemin d'accès d'un fichier, extension comprise (la base de donnée)
 - le nom sans extension et avec chemin d'accès du fichier dans lequel sera stockée la matrice
 
@@ -14,7 +14,7 @@ La fonction analyse le texte et enregistre une matrice 4D des probabilités de t
 ## 3 - Créer l'ensemble de mots existants
 Cette étape permettra, lorsque les mots seront crées, de ne prendre en compte que les mots réellement inventés par le générateur.
 
-La fonction **ensemble_mots_existants** dans le fichier XXX prend en entrée :
+La fonction **ensemble_mots_existants** dans le fichier **ensemble_mots_existants.py** prend en entrée :
 - le chemin d'accès de la base de donnée utilisée précédemment (avec extension)
 - le nom (avec chemin d'accès et extension) du fichier dans lequel la base de données sera enregistrée
 
