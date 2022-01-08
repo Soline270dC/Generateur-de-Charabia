@@ -1,0 +1,8 @@
+Allemand :
+alphabet = 'abcdefghijklmnopqrstuvwxyzäëïöü '
+
+Anglais :
+alphabet = 'abcdefghijklmnopqrstuvwxyz '
+
+Espagnol :
+alphabet = 'abcdefghijklmnopqrstuvwxyzñáéíóú -'
