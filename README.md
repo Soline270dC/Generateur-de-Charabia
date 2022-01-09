@@ -72,3 +72,6 @@ Elle renvoie le texte modifié ou l'écrit dans un fichier selon le choix de l'u
 Cette fonction fait appel à la fonction **liste_d_l_min** du fichier **distance_levenshtein.py**.
 
 Sa complexité en temps est en O(len(texte)*len(Liste_mots))
+
+
+PS : Nous avons travaillé principalement ensemble, sur le même ordinateur dans la majorité des cas. Ce qui explique l'inégalité des commits enregistrés
