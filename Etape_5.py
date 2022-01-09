@@ -2,7 +2,7 @@ import codecs
 
 # Choisir le mode d'utilisation (Au hasard/ Avec la distance d'édition de Levenshtein)
 hasard = eval(input("Voulez-vous remplacer un mot par un mot inventé de même longueur choisi tout à fait au hasard ? (True/False) "))
-levenshtein = eval(input(" Voulez-vous remplacer un mot par un mot inventé qui lui est le plus proche par rapport à la distance d'édition de Levenshtein ? (True/False) "))
+levenshtein = eval(input("Voulez-vous remplacer un mot par un mot inventé qui lui est le plus proche par rapport à la distance d'édition de Levenshtein ? (True/False) "))
 
 if hasard or levenshtein : 
     nom_liste = input("Veuillez noter le nom de la liste de mots inventés créée dans les étapes précédentes (avec extension txt): ")
