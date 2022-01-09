@@ -10,4 +10,4 @@ Les deux ensembles de programmes ne sont pas sous forme de fonction.
 ## 4D - mots existants
 Ce dossier regroupe les programmes permettant de créer une liste de mots et du charabia sans enlever les mots français.
 
-Nous avons également mis un exemple de liste générée ainsi et un extrait modifié des **Misérables**. Etonnamment, cela donne relativement peu en propostion de mots français.
+Nous avons également mis un exemple de liste générée ainsi et un extrait modifié des *Misérables*. Etonnamment, cela donne relativement peu en propostion de mots français.
