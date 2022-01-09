@@ -52,6 +52,17 @@ def generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max =
             else :
                 n_texte += texte[sep+1:i+1]
             sep = i
+    if sep != i :
+        long = i - (sep+1)
+        if long >= long_min and long <= long_max :
+            if Liste_mots_triee[long] != [] :
+                n_nom = random.choice(Liste_mots_triee[long])
+                if texte[sep+1].upper() == texte[sep+1] :
+                    n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
+                else :
+                    n_texte += n_nom + texte[i]
+            else :
+                n_texte += texte[sep+1:i+1]
+        else :
+            n_texte += texte[sep+1:i+1]
     return n_texte
-
-
