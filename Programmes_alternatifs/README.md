@@ -8,6 +8,6 @@ Les matrices 2D et 3D, construites sur le même principe que la matrice 4D, fonc
 Les deux ensembles de programmes ne sont pas sous forme de fonction.
 
 ## 4D - mots existants
-Ce dossier regroupe les programmes permettant de créer une liste de mots dont on n'a pas enlevé les mots français.
+Ce dossier regroupe les programmes permettant de créer une liste de mots et du charabia sans enlever les mots français.
 
-Etonnamment, cela donne relativement peu en propostion de mots français.
+Nous avons également mis un exemple de liste générée ainsi et un extrait modifié des **Misérables**. Etonnamment, cela donne relativement peu en propostion de mots français.
