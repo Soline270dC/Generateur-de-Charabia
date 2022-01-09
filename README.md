@@ -77,5 +77,5 @@ Sa complexité en temps est en O(len(texte)*len(Liste_mots))
 
 
 
-##PS :
+## PS :
 Nous avons travaillé principalement ensemble, sur le même ordinateur dans la majorité des cas. Ce qui explique l'inégalité des commits enregistrés.
