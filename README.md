@@ -4,6 +4,8 @@ Notre genérateur de charabia fonctionne en 5 étapes. Les 4 premières peuvent 
 ## 1 - Choisir la base de données
 Un dossier contenant plusieurs bases de données est disponible. Pour plus de précisions, nous avons également mis en Readme dans ce dossier.
 
+Si vous souhaitez utiliser une base de données en langue étrangère, veuillez vous reporter au fichier **Programmes_alternatifs\4D_etranger\Etapes_1_2_3_4_etranger.py**
+
 ## 2 - Créer la matrice de transition 4D
 Nous expliquons pourquoi et comment nous générons la matrice en commentaire dans le fichier **Matrice_transition_4D.py**. 
 Il est aussi possible d'utiliser une matrice 3D ou 2D, mais les mots sont alors plus difficiles à lire et sonnent peu français pour la plupart. Les programmes des matrices 3D et 2D sont moins commentés mais le principe est le même que pour la 4D. 
