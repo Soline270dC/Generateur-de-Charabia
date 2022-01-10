@@ -1,9 +1,3 @@
-def indicatrice(n_1, n_2) :
-    if n_1 != n_2 :
-        return 1
-    else :
-        return 0
-
 def d_l(a,b) : # \Theta(len(a)*len(b))
     a = ' ' + a
     b = ' ' + b
@@ -15,7 +9,7 @@ def d_l(a,b) : # \Theta(len(a)*len(b))
             if j == 0 or i == 0 :
                 D[i][j] = i + j
             else :
-                D[i][j] = min(D[i-1][j] + 1, D[i][j-1] + 1, D[i-1][j-1] + indicatrice(car_a, car_b))
+                D[i][j] = min(D[i-1][j] + 1, D[i][j-1] + 1, D[i-1][j-1] + int(car_a != car_b))
     return D[-1][-1]
 
 def liste_d_l_min(nom, liste_mots) : # \Theta(len(nom)*len_moyenne(mots)*nb_mots)

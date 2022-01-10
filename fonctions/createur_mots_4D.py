@@ -33,6 +33,7 @@ def createur_mots_4D(n, Mat, ensemble_mots_existants) : # O(max(n*len(ensemble_m
             y = z
             z = alphabet.index(car) # O(len(alphabet)) = O(1)
         mot = mot.replace(' ','\n')
+        
         # le mot ne doit ni être français, ni avoir déjà été créé : cela permet d'avoir exactement n mots inventés. 
         # De plus, on choisit de ne garder que les mots de longueur inférieure ou égale à 30 (dans les générateurs 
         # de charabia utilisés ensuite, on ne remplacera en effet que les mots de longueur comprise en 5 et 20)
