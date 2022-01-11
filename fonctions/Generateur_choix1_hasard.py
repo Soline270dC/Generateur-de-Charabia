@@ -16,7 +16,7 @@ import random
 
 # Listes de mots : mots créés et mots à changer
 # Comme on veut remplacer le mot initial par un mot créé de même longueur, on trie les mots créés selon leur longueur. Le tout est stocké dans une lsite de listes. Par exemple, liste_mots_triee[3] contient tous les mots inventés de longueur 3.
-def liste_mots_triee(nom_fichier, mode = 'utf-8') :
+def liste_mots_triee(nom_fichier, mode = 'utf-8') : # O(len(liste_mots)) amorti
     f = codecs.open(nom_fichier, 'r', mode)
     str_mots = f.read()
     f.close()
@@ -24,7 +24,7 @@ def liste_mots_triee(nom_fichier, mode = 'utf-8') :
     liste_mots_triee = [[] for _ in range(26)]
     for mot in liste_mots :
         if len(mot) < 26 :
-            liste_mots_triee[len(mot)].append(mot)
+            liste_mots_triee[len(mot)].append(mot) # O(1) amorti
     return liste_mots_triee
 
 def generateur_charabia_hasard(texte, Liste_mots_triee, long_min = 5, long_max = 20) : # O(len(texte))

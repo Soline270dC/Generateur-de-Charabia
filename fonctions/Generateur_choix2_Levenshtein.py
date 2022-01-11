@@ -29,8 +29,8 @@ def generateur_charabia_levenshtein(texte, Liste_mots, long_min = 5, long_max = 
             long = i - (sep+1)
             if long >= long_min and long <= long_max :
                 if texte[sep+1:i] not in dico :
-                    dico[texte[sep+1:i]] = liste_d_l_min(texte[sep+1:i], Liste_mots)              
-                n_nom = random.choice(dico[texte[sep+1:i]]) # O(len(Liste_mots)*long*len_moyenne(mots in Liste_mots)) = O(len(Liste_mots)) car len_moyenne(mots in Liste_mots) = O(1) en pratique
+                    dico[texte[sep+1:i]] = liste_d_l_min(texte[sep+1:i], Liste_mots) # O(len(Liste_mots))
+                n_nom = random.choice(dico[texte[sep+1:i]])
                 if texte[sep+1].upper() == texte[sep+1] :
                     n_texte += n_nom[0].upper() + n_nom[1:] + texte[i]
                 else :

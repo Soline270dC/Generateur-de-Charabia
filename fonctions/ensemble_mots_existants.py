@@ -5,7 +5,7 @@ def ensemble_mots_existants(nom_fichier, nom_ensemble, mode = 'utf-8') :
     f = codecs.open(nom_fichier, 'r', mode)
     texte = f.read()
     f.close()
-    for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] :
+    for c in ['"','(',')',',','?',';','.',':','!','--','_','»','«'] : # O(len(texte)²)
         texte = texte.replace(c,' ')
     texte = texte.lower()
     mots = texte.split()
